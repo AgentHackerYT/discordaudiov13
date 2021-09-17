@@ -37,6 +37,7 @@ client.on('messageCreate', async message => {
             silencePaddingFrames: data,
             metadata: data
         }
+        connection.setSelfDeaf(true) // default false
         const dispatcher = connection.play('URL/Path As in v12' , options/*Options in Beta and will be according to v13*/)
          if(args[0] == "pause"){
             dispatcher.pause()
@@ -55,6 +56,8 @@ client.on('messageCreate', async message => {
 const da = require('discordaudiov13')
 const msg = da.init(message , client).message
 const connection = message.member.voice.channel.join()
+connection.setSelfDeaf(true) // default is false
+connection.setSelfMute(true) // default is false
 const dispatcher = connection.play(`URL/Path As in v12`)
 dispatcher.pause()
 dispatcher.resume()
