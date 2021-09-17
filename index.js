@@ -46,6 +46,9 @@ module.exports = {
                                              },
                                              rejoin: () =>{
                                                  connection.rejoin()
+                                             },
+                                             setVolume: (volume) =>{
+                                                 resource.volume.setVolume(volume)
                                              }
                                             
                                         }
