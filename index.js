@@ -23,9 +23,9 @@ module.exports = {
                                     adapterCreator: message.guild.voiceAdapterCreator,
                                 });
                                 const player2 = {
-                                    play: (id)=>{
+                                    play: (id , options)=>{
                                         const player = createAudioPlayer();
-                                        const resource = createAudioResource(id);
+                                        const resource = createAudioResource(id , options);
                                         connection.subscribe(player)
                                         player.play(resource)
                                         const a = {
