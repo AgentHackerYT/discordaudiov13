@@ -3,8 +3,8 @@ const {
     createAudioPlayer,
     createAudioResource
 } = require('@discordjs/voice');
-async function play(id){
-}
+let selfDeaf = false
+let selfMute = false
 module.exports = {
     init:(message , client)=>{
         const a = {
@@ -21,8 +21,16 @@ module.exports = {
                                     channelId: message.member.voice.channel.id,
                                     guildId: message.guild.id,
                                     adapterCreator: message.guild.voiceAdapterCreator,
+                                    selfDeaf: selfDeaf,
+                                    selfMute: selfMute,
                                 });
                                 const player2 = {
+                                    setSelfDeaf:(data = [true])=>{
+                                    selfDeaf = data
+                                    },
+                                    setSelfMute:(data = [true])=>{
+                                        selfMute = data
+                                    },
                                     play: (id , options)=>{
                                         const player = createAudioPlayer();
                                         const resource = createAudioResource(id , options);
