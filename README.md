@@ -31,7 +31,13 @@ client.on('messageCreate', async message => {
 	// Join the same voice channel of the author of the message
     if(command === "audio"){
         const connection = msg.member.voice.channel.join();
-        const dispatcher = connection.play('URL/Path As in v12')
+        const options = {
+            inlineVolume: data,
+            inputType: data,
+            silencePaddingFrames: data,
+            metadata: data
+        }
+        const dispatcher = connection.play('URL/Path As in v12' , options/*Options in Beta and will be according to v13*/)
          if(args[0] == "pause"){
             dispatcher.pause()
         }else if(args[0] == "disconnect"){
